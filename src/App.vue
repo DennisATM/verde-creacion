@@ -1,12 +1,48 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <div id="app">     
     <router-view/>
   </div>
 </template>
+<script>
+
+import {mapState} from 'vuex'
+import firebase from 'firebase/app'
+import 'firebase/firestore'
+export default {
+  components:{
+   
+  },
+  computed:{
+    ...mapState(['productos'])
+  },
+  created(){
+    this.cargarProductos()
+  },
+  methods:{
+    cargarProductos(){
+      try {
+            this.productos=[];
+            var db = firebase.firestore();
+            db.collection('productos').get()
+            .then((query)=>{
+                query.forEach((doc)=>{  
+                    this.productos.push( {
+                        id:doc.id,
+                        image:doc.data().image,
+                        nombre:doc.data().nombre,
+                        genero:doc.data().genero,
+                        precio:doc.data().precio,
+                        detail:doc.data().detail,
+                    });
+                })
+            })  
+        } catch (error) {
+            console.log(error)
+        }     
+    }
+  }
+}
+</script>
 
 <style>
 #app {
@@ -15,18 +51,5 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>
