@@ -1,7 +1,7 @@
 <template>
    <div>
       <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-nav">
-       <a class="nav-link text-white" href="/HomeAdmin" ><img class="nav__logo" src="../../public/img/logoNav.jpg" alt="Logo vivero"> &nbsp;<span class="navbar-logo-text"><em>Vivero y jardines</em></span> </a>
+       <a class="nav-link text-white" href="" @click="goToHomeAdmin()"><img class="nav__logo" src="../../public/img/logoNav.jpg" alt="Logo vivero"> &nbsp;<span class="navbar-logo-text"><em>Vivero y jardines</em></span> </a>
         <button
           class="navbar-toggler"
           type="button"
@@ -17,19 +17,19 @@
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
           <ul class="navbar-nav m-auto">
             <li class="nav-item active">
-              <a href="/homeAdmin" class="nav-link text-white font-weight-bold" 
+              <a href="" @click="goToHomeAdmin()" class="nav-link text-white font-weight-bold" 
               ><em>Pedidos</em></a>
             </li>
             <li class="nav-item active">
-              <a href="/mainProduct" class="nav-link text-white font-weight-bold"  
+              <a href="" @click="goToProductos()" class="nav-link text-white font-weight-bold"  
               ><em>Productos</em></a>
             </li>
             <li class="nav-item active">
-              <a href="#" class="nav-link text-white font-weight-bold" 
+              <a href="" class="nav-link text-white font-weight-bold" 
               ><em>Reporte Ventas</em></a>
             </li>
             <li class="nav-item active">
-              <a href="/" class="nav-link text-white font-weight-bold"  
+              <a href="" @click="exit()" class="nav-link text-white font-weight-bold"  
               ><em>Salir</em></a>
             </li>
           </ul>
@@ -41,8 +41,14 @@
 <script>
 export default{
   methods:{
-    goToCatalogo(){
-     this.$router.push('Catalogo')
+    goToHomeAdmin(){
+     this.$router.push('HomeAdmin');
+    },
+    goToProductos(){
+     this.$router.push('MainProduct');
+    },
+    exit(){
+     this.$router.push('/')
     },
   }
 }

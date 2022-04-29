@@ -1,7 +1,7 @@
 <template>
    <div>
       <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-nav">
-       <a class="nav-link text-white" href="/" ><img class="nav__logo" src="../../public/img/logoNav.jpg" alt="Logo vivero"> &nbsp;<span class="navbar-logo-text"><em>Vivero y jardines</em></span> </a>
+       <a class="nav-link text-white" href="" @click="goToHome()" ><img class="nav__logo" src="../../public/img/logoNav.jpg" alt="Logo vivero"> &nbsp;<span class="navbar-logo-text"><em>Vivero y jardines</em></span> </a>
         <button
           class="navbar-toggler"
           type="button"
@@ -17,15 +17,15 @@
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
           <ul class="navbar-nav m-auto">
             <li class="nav-item active">
-              <a href="/" class="nav-link text-success font-weight-bold" 
+              <a href="" @click="goToHome()" class="nav-link text-success font-weight-bold" 
               ><em>Inicio</em></a>
             </li>
             <li class="nav-item active">
-              <a href="/Catalogo" class="nav-link text-success font-weight-bold"  
+              <a href="" class="nav-link text-success font-weight-bold"  @click="goToCatalogo()"
               ><em>Productos</em></a>
             </li>
             <li class="nav-item active">
-              <a href="/Carrito" class="nav-link text-success font-weight-bold" 
+              <a href="" class="nav-link text-success font-weight-bold" @click="goToCarrito()"
               ><em>Carrito de Compras</em></a>
             </li>
             <li class="nav-item dropdown">
@@ -41,7 +41,7 @@
                 <em>Admin</em>
               </a>
               <div class="dropdown-menu bg-nav" aria-labelledby="navbarDropdown">
-                <a href="/Login" class="dropdown-item text-success">Login</a>
+                <a href="" class="dropdown-item text-success" @click="goToLogin()">Login</a>
               </div>
             </li>
           </ul>
@@ -53,8 +53,17 @@
 <script>
 export default{
   methods:{
+    goToHome(){
+     this.$router.push('/')
+    },
     goToCatalogo(){
      this.$router.push('Catalogo')
+    },
+    goToCarrito(){
+     this.$router.push('Carrito')
+    },
+    goToLogin(){
+     this.$router.push('Login')
     },
   }
 }
