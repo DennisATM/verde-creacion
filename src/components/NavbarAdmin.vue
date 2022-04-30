@@ -42,10 +42,10 @@
 export default{
   methods:{
     goToHomeAdmin(){
-     this.$router.push('HomeAdmin');
+     this.$router.push('/homeAdmin');
     },
     goToProductos(){
-     this.$router.push('MainProduct');
+     this.$router.push('/mainProduct');
     },
     exit(){
      this.$router.push('/')

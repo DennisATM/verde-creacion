@@ -57,13 +57,13 @@ export default{
      this.$router.push('/')
     },
     goToCatalogo(){
-     this.$router.push('Catalogo')
+     this.$router.push('/Catalogo')
     },
     goToCarrito(){
-     this.$router.push('Carrito')
+     this.$router.push('/Carrito')
     },
     goToLogin(){
-     this.$router.push('Login')
+     this.$router.push('/Login')
     },
   }
 }
