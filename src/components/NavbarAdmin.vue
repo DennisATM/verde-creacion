@@ -42,13 +42,13 @@
 export default{
   methods:{
     goToHomeAdmin(){
-     this.$router.push('/homeAdmin');
+     this.$router.replace({name:'HomeAdmin'});
     },
     goToProductos(){
-     this.$router.push('/mainProduct');
+     this.$router.replace({name:'MainProduct'});
     },
     exit(){
-     this.$router.push('/')
+     this.$router.replace({name:'Home'})
     },
   }
 }
